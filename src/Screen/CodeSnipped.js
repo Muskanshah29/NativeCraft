@@ -26,6 +26,8 @@ const CodeSnipped = ({ language = 'javascript', theme = atomOneDark }) => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Code Snippet:</Text>
+
+
       <View style={styles.codeContainer}>
         <TouchableOpacity style={styles.copyButton} onPress={copyToClipboard}>
           <Text style={styles.copyButtonText}>Copy</Text>
@@ -38,6 +40,8 @@ const CodeSnipped = ({ language = 'javascript', theme = atomOneDark }) => {
           {codeString}
         </SyntaxHighlighter>
       </View>
+
+
     </ScrollView>
   );
 };
