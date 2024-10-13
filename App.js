@@ -1,8 +1,10 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 const App=()=>{
   return(
-    <Text>App</Text>
+    <View>
+       <Text>App</Text>
+    </View>
   )
 }
 
