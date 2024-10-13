@@ -1,42 +1,31 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard, SectionList } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
-const SectionListScreen = ({ language = 'javascript', theme = atomOneDark }) => {
+const PropsScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const codeString = `
 import React from 'react';
-import { SectionList, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
-const Example = () => {
-  const DATA = [
-    {
-      title: 'Main Dishes',
-      data: ['Pizza', 'Burger', 'Risotto'],
-    },
-    {
-      title: 'Sides',
-      data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
-    },
-    {
-      title: 'Drinks',
-      data: ['Water', 'Coke', 'Beer'],
-    },
-    {
-      title: 'Desserts',
-      data: ['Cheese Cake', 'Ice Cream'],
-    },
-  ];
-
+const Greeting = (props) => {
   return (
-    <SectionList
-      sections={DATA}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({ item }) => <Text>{item}</Text>}
-      renderSectionHeader={({ section: { title } }) => <Text style={{ fontWeight: 'bold' }}>{title}</Text>}
-    />
+    <View>
+      <Text>Hello, {props.name}!</Text>
+    </View>
   );
 };
+
+const Example = () => {
+  return (
+    <View>
+      <Greeting name="Alice" />
+      <Greeting name="Bob" />
+      <Greeting name="Charlie" />
+    </View>
+  );
+};
+
 export default Example;`;
 
   const copyToClipboard = async () => {
@@ -44,52 +33,40 @@ export default Example;`;
     Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
   };
 
+
   const ExampleOutput = () => {
-    const DATA = [
-      {
-        title: 'Main Dishes',
-        data: ['Pizza', 'Burger', 'Risotto'],
-      },
-      {
-        title: 'Sides',
-        data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
-      },
-      {
-        title: 'Drinks',
-        data: ['Water', 'Coke', 'Beer'],
-      },
-      {
-        title: 'Desserts',
-        data: ['Cheese Cake', 'Ice Cream'],
-      },
-    ];
+    const Greeting = ({ name }) => (
+      <View>
+        <Text style={styles.outputText}>Hello, {name}!</Text>
+      </View>
+    );
 
     return (
-      <SectionList
-        sections={DATA}
-        keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => <Text style={styles.outputItem}>{item}</Text>}
-        renderSectionHeader={({ section: { title } }) => <Text style={styles.outputHeader}>{title}</Text>}
-      />
+      <View>
+        <Greeting name="Alice" />
+        <Greeting name="Bob" />
+        <Greeting name="Charlie" />
+      </View>
     );
   };
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>React Native SectionList</Text>
+      <Text style={styles.title}>React Native Props</Text>
       <Text style={styles.description}>
-        SectionList is a component that displays sections with headers. Each section can contain multiple data items.
-        It is useful for grouping related items under common headings.
+        Props (short for "properties") are used to pass data between components in React Native. They allow you to customize a component by passing values as attributes.
+      </Text>
+
+      <Text style={styles.subtitle}>What are Props?</Text>
+      <Text style={styles.description}>
+        Props are similar to function arguments in JavaScript. They are passed to components, making them reusable and adaptable. For example, a button component could use props to change its text label or style dynamically.
       </Text>
 
       <Text style={styles.subtitle}>Syntax:</Text>
       <Text style={styles.code}>
-        {`<SectionList
-  sections={DATA}
-  keyExtractor={(item, index) => item + index}
-  renderItem={({ item }) => <Text>{item}</Text>}
-  renderSectionHeader={({ section: { title } }) => <Text>{title}</Text>}
-/>`}
+        {`const Component = (props) => {
+  return <Text>{props.someProp}</Text>;
+};`}
       </Text>
 
       <Text style={styles.subtitle}>Example Code:</Text>
@@ -114,7 +91,7 @@ export default Example;`;
   );
 };
 
-export default SectionListScreen;
+export default PropsScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -133,7 +110,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 10,
     color: '#34495E',
-    top: 5,
   },
   subtitle: {
     fontSize: 18,
@@ -185,13 +161,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#2E4053',
     borderRadius: 5,
   },
-  outputHeader: {
+  outputText: {
     fontSize: 16,
-    fontWeight: 'bold',
-    marginVertical: 10,
-  },
-  outputItem: {
-    fontSize: 14,
-    marginLeft: 10,
+    color: '#FFFFFF',
+    textAlign: 'center',
   },
 });
