@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView } from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen = () => { 
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.title}>Learn React Native</Text>
@@ -44,7 +44,7 @@ export default HomeScreen
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-        backgroundColor: '#E9F5EF', 
+        backgroundColor: 'white', 
         flex:1
     },
     title: {

@@ -1,29 +1,68 @@
-import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
+import React, { useRef } from 'react';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard, Image } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
+import Video from 'react-native-video';
 
 const ScrollViewScreen = ({ language = 'javascript', theme = atomOneDark }) => {
+  const videoRef = useRef(null);
   const codeString = `
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 const Example = () => {
   return (
     <ScrollView>
-      <View>
-        <Text>Item 1</Text>
-        <Text>Item 2</Text>
-        <Text>Item 3</Text>
-        <Text>Item 4</Text>
-        <Text>Item 5</Text>
-        <Text>Item 6</Text>
-        <Text>Item 7</Text>
+      <View style={styles.container}>
+        <Text style={styles.txtStyle}>Item 1</Text>
+        <Image
+            source={require('../../Sakshi_Dube/image/i2.png')}
+            style={{height:100,width:100}}
+        />
+        <Text style={styles.txtStyle}>Item 2</Text>
+        <Image
+            source={require('../../Sakshi_Dube/image/i5.png')}
+            style={{height:100,width:100}}
+        />
+        <Text style={styles.txtStyle}>Item 3</Text>
+        <Image
+            source={require('../../Sakshi_Dube/image/i2.png')}
+            style={{height:100,width:100}}
+        />
+        <Text style={styles.txtStyle}>Item 4</Text>
+        <Image
+            source={require('../../Sakshi_Dube/image/i5.png')}
+            style={{height:100,width:100}}
+        />
+        <Text style={styles.txtStyle}>Item 5</Text>
+        <Image
+            source={require('../../Sakshi_Dube/image/i2.png')}
+            style={{height:100,width:100}}
+        />
+        <Text style={styles.txtStyle}>Item 6</Text>
+        <Image
+            source={require('../../Sakshi_Dube/image/i5.png')}
+            style={{height:100,width:100}}
+        />
+        <Text style={styles.txtStyle}>Item 7</Text>
       </View>
     </ScrollView>
   );
 };
-export default Example;`;
+export default Example;
+
+const styles=StyleSheet.create({
+    container:{
+        flex:1,
+        padding:20,
+        alignItems:'center'
+    },
+    txtStyle:{
+        fontWeight:'bold',
+        marginVertical:20,
+        fontSize:20
+    }
+})`;
 
   const copyToClipboard = async () => {
     await Clipboard.setString(codeString);
@@ -62,6 +101,25 @@ export default Example;`;
           {codeString}
         </SyntaxHighlighter>
       </View>
+      <View>
+        <Text style={styles.subtitle}>Code Output:</Text>
+        <View>
+          <Video
+            ref={videoRef} // Attach the ref to the Video component
+            source={require('../../Sakshi_Dube/video/SViewVideo.mp4')}
+            style={styles.video}
+            controls={false} // Disable video controls
+            resizeMode="contain" // Adjust video size
+            paused={false} // Autoplay
+            onLoad={() => {
+              if (videoRef.current) {
+                videoRef.current.seek(0); // Seek to the start
+              }
+            }}
+            repeat={true} // Loop the video
+          />
+        </View>
+      </View>
     </ScrollView>
   );
 };
@@ -71,8 +129,8 @@ export default ScrollViewScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#E9F5EF',
+    padding: 10,
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
@@ -119,15 +177,19 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   codeContainer: {
-    marginTop: 20,
+    marginTop: 30,
     borderRadius: 5,
     overflow: 'hidden',
     position: 'relative',
-    bottom:25
+    bottom: 25
   },
   syntaxHighlighter: {
     lineHeight: 20,
     fontSize: 14,
     padding: 10,
   },
+  video: {
+    width: '100%',
+    height: 800, // Adjust height as needed
+},
 });
