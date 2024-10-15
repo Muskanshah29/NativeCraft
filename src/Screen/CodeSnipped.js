@@ -40,8 +40,6 @@ const CodeSnipped = ({ language = 'javascript', theme = atomOneDark }) => {
           {codeString}
         </SyntaxHighlighter>
       </View>
-
-
     </ScrollView>
   );
 };

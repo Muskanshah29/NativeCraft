@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
       </View>
       <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
       <Image
-       source={require('./src/vaibhav/Images/v1.png')}
+       source={require('../../vaibhav/Images/v2.png')}
         style={styles.ImageStyle}
        />
 
