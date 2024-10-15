@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
         flex:1
     },
     title: {
-        top:15,
-        fontSize: 29,
+        marginTop:40,
+        fontSize: 25,
         fontWeight: 'bold',
         marginBottom: 15,
         textAlign: 'center',

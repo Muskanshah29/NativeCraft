@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      navigation.navigate('Drawer')
+    },3000)
+  })
   return (
     <LinearGradient
       colors={['#062626','#ACD6F2', '#48C9B0','#1ABC9C']}
@@ -25,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titleText: {
-    fontSize: 55,
+    fontSize: 40,
     fontWeight: 'bold',
     color: '#2E4053',
     textShadowColor: '#ffff', 

@@ -1,10 +1,11 @@
 import React from "react";
-import { Text, View } from "react-native";
-const App=()=>{
-  return(
-    <View>
-       <Text>App</Text>
-    </View>
+import DrawerNavigation from "./src/Screen/Navigation/DrawerNavigation";
+import SplashScreen from "./src/Sakshi_Dube/Screen/SplashScreen";
+import AppNavigation from "./src/Screen/Navigation/AppNavigation";
+
+const App = () => {
+  return (
+    <AppNavigation />
   )
 }
 
