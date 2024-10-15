@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     right: 5,
     paddingVertical: 5,
     paddingHorizontal: 10,
-    backgroundColor: '#1ABC9C',
+    backgroundColor: '#48C9B0',
     borderRadius: 5,
     zIndex: 1,
   },
