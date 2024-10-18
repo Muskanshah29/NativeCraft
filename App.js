@@ -1,13 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import React from "react";
-
-
+import Toastscreen from './src/Gayatri/Toastscreen';
 
 const App = () => {
     return (
         <View>
-            <Text>App</Text>
+            <Text>hii</Text>
         </View>
     )
 }
