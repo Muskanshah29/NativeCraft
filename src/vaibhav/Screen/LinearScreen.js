@@ -72,13 +72,16 @@ const styles = StyleSheet.create({
       </View>
       <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
       <Image
-       source={require('./src/vaibhav/Images/v1.png')}
+       source={require('../Images/v1.png')}
         style={styles.ImageStyle}
        />
+       
 
     </ScrollView>
+    
   );
 };
+
 export default LinearScreen;
 const styles = StyleSheet.create({
   container: {
@@ -141,6 +144,6 @@ const styles = StyleSheet.create({
   ImageStyle: {
     alignSelf: 'center',
     height: 400,
-    width: 150
+    width: 350
   }
 });

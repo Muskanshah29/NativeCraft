@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     },
     ImageStyle: {
         alignSelf: 'center',
-        height: 600,
-        width: 300
+        height: 300,
+        width: 350
     }
 });
