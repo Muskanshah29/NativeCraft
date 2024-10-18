@@ -7,10 +7,11 @@ import SectionListScreen from './src/MayuriWagh/screen/SectionListScreen';
 
 const App = () => {
   return (
-    // <HomeScreen/>
-    <BottomTabNavigatorScreen/>
-    // <PropsScreen/>
-    // <SectionListScreen/>
+    <View>
+      <Text>
+        App
+      </Text>
+    </View>
  )
 }
 
