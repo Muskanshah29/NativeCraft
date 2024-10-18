@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image, Button } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import { Clipboard } from 'react-native';
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   };
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>React Native In Button</Text>
+      <Text style={styles.title}>React Native Button</Text>
       <Text style={styles.descText}>Description :-</Text>
       <Text style={styles.descriptionText}>
         In Button component is a simple and built-in UI element used to create clickabel
@@ -55,11 +55,15 @@ const styles = StyleSheet.create({
           {codeString}
         </SyntaxHighlighter>
       </View>
-      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-      <Image
-        source={require('../dishaKhule/Image/Image1.png')}
-        style={styles.ImageStyle}
+      <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
+      <View style={{width:'30%',alignSelf:'center',marginTop:30}}>
+      <TouchableOpacity>
+      <Button
+      title="Submit"
+      color={"red"}
       />
+      </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 };
@@ -67,34 +71,33 @@ export default ButtonComp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 5,
+    padding: 15,
     backgroundColor: 'white'
   },
   title: {
-    fontSize: 30,
+    fontSize: 23,
     fontWeight: 'bold',
+    marginBottom: 5,
     color: '#2E4053',
-    alignSelf: 'center',
-    marginBottom: 10
+    textAlign: 'center',
   },
   descText: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: 'bold',
     color: '#2E4053',
-    marginTop: 10
+    marginTop:10
   },
   descriptionText: {
-    fontSize: 16,
+    fontSize: 17,
+    marginBottom: 5,
     color: '#34495E',
-    fontWeight: '400',
-    marginLeft: 2,
-    marginVertical: 5
+    top: 5,
   },
   codeTitle: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#2E4053',
-    marginTop: 10
+    marginTop:10
   },
   codeContainer: {
     marginTop: 5,

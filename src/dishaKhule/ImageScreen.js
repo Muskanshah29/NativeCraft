@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
           {codeString}
         </SyntaxHighlighter>
       </View>
-      <Text style={{fontSize: 20,fontWeight: 'bold',color: '#2E4053',marginTop:5}}>Output :-</Text>
+      <Text style={{fontSize: 17,fontWeight: 'bold',color: '#2E4053',marginTop:5}}>Output :-</Text>
       <Image
       source={require('../dishaKhule/Image/Image.png')}
       style={styles.ImageStyle}
@@ -72,31 +72,30 @@ export default ImageScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 5,
+    padding: 10,
     backgroundColor: 'white'
   },
   title: {
-    fontSize: 30,
+    fontSize: 23,
     fontWeight: 'bold',
+    marginBottom: 5,
     color: '#2E4053',
-    alignSelf: 'center',
-    marginBottom: 10
+    textAlign: 'center',
   },
   descText: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: 'bold',
     color: '#2E4053',
     marginTop:10
   },
   descriptionText: {
     fontSize: 16,
+    marginBottom: 5,
     color: '#34495E',
-    fontWeight: '400',
-    marginLeft: 2,
-    marginVertical:5
+    top: 5,
   },
   codeTitle:{
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: 'bold',
     color: '#2E4053',
     marginTop:10
@@ -129,8 +128,10 @@ const styles = StyleSheet.create({
   },
   ImageStyle:{
     alignSelf:'center',
-    width:380,
-    height:500,
+    width:300,
+    height:300,
+    marginBottom:20,
+    marginTop:10
   }
 });
 
