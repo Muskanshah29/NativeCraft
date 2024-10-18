@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import MapScreen from './src/Purkar_Puja/Screens/MapScreen'
 const App = () => {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <MapScreen/>
   )
 }
 export default App;
