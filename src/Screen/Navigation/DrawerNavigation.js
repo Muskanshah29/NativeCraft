@@ -23,6 +23,7 @@ import ImageScreen from '../../dishaKhule/ImageScreen';
 import LinearGradient from 'react-native-linear-gradient';
 import TouchableOpacity1 from '../../vaibhav/Screen/TouchableOpacityScreen';
 import LinearScreen from '../../vaibhav/Screen/LinearScreen';
+import CustomizeButtonScreen from '../../Sakshi_Dube/Screen/CustomizeButtonScreen';
 const DrawerNavigation = () => {
     return (
         <Drawer.Navigator
@@ -65,6 +66,14 @@ const DrawerNavigation = () => {
                 options={{
                     headerShown: false,
                     drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                }}
+            />
+            <Drawer.Screen
+                name='CustomizeButton'
+                component={CustomizeButtonScreen}
+                options={{
+                    headerShown: false,
+                    drawerIcon: () => <Icon name='pluscircleo' size={20} color='black' />,
                 }}
             />
             <Drawer.Screen

@@ -1,11 +1,8 @@
-import React, { useRef } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard, Image } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
-import Video from 'react-native-video';
 
 const ScrollViewScreen = ({ language = 'javascript', theme = atomOneDark }) => {
-  const videoRef = useRef(null);
 
   const Example = () => {
     return (
@@ -169,7 +166,6 @@ const styles = StyleSheet.create({
     backgroundColor:'#E3E3E3',
     alignItems:'center',
     marginVertical:20,
-  
   }
 
 });

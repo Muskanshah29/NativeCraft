@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     description: {
+        top:5,
         fontSize: 16,
         marginBottom: 10,
         color: '#34495E',
