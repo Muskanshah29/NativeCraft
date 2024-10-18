@@ -67,7 +67,7 @@ export default App;
             </View>
             <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
             <Image
-       source={require('../Images/a2.png')}
+       source={require('../Images/a3.png')}
         style={styles.ImageStyle}
        />
         </ScrollView>
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     },
     ImageStyle: {
         alignSelf: 'center',
-        height: 500,
-        width: 200
+        height: 300,
+        width: 350
     }
 });
