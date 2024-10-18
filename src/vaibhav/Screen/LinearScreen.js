@@ -3,6 +3,8 @@ import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image } fr
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import { Clipboard } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+
 const LinearScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const codeString = `
 
@@ -31,8 +33,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     gradient: {
-        width: 370,
-        height: 810,
+        width: 300,
+        height: 300,
         marginVertical: 10,
         borderRadius: 20
     },
@@ -45,13 +47,27 @@ const styles = StyleSheet.create({
 })
   
   `;
+  const App = () => {
+    return (
+      <View style={styles.container}>
+        <LinearGradient
+          colors={['#FF0098', 'orange',]}
+          start={{ x: 1, y: 0 }}
+          end={{ x: 0, y: 1 }}
+          style={styles.gradient}
+        >
+          <Text style={styles.Textcontainer}>vaibhav</Text>
+        </LinearGradient>
+      </View>
+    )
+  }
 
   const copyToClipboard = async () => {
     await Clipboard.setString(codeString);
     Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
   };
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container1}>
       <Text style={styles.title}>LinearGradient</Text>
       <Text style={styles.descText}>Description :-</Text>
       <Text style={styles.descriptionText}>In React Native, linear gradients can be applied using the react-native-linear-gradient library, allowing you to create smooth transitions between colors in a view. This is commonly used for backgrounds, buttons, or overlay effects to enhance the UI.
@@ -71,24 +87,18 @@ const styles = StyleSheet.create({
         </SyntaxHighlighter>
       </View>
       <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-      <Image
-<<<<<<< HEAD
-       source={require('../Images/v1.png')}
-=======
-       source={require('../../vaibhav/Images/v2.png')}
->>>>>>> 39402f222280350cda5b1b57349ad706e55ff291
-        style={styles.ImageStyle}
-       />
-       
+      <View>
+        <App />
+      </View>
 
     </ScrollView>
-    
+
   );
 };
 
 export default LinearScreen;
 const styles = StyleSheet.create({
-  container: {
+  container1: {
     flex: 1,
     padding: 5,
     backgroundColor: 'white'
@@ -148,6 +158,23 @@ const styles = StyleSheet.create({
   ImageStyle: {
     alignSelf: 'center',
     height: 400,
-    width: 350
-  }
+    width: 350
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  gradient: {
+    width: 300,
+    height: 300,
+    marginVertical: 10,
+    borderRadius: 20
+  },
+  Textcontainer: {
+    color: 'white',
+    fontSize: 25,
+    alignSelf: 'center',
+    
+  }
 });

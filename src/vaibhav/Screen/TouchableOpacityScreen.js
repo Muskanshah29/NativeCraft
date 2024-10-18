@@ -53,6 +53,25 @@ const styles = StyleSheet.create({
 }) 
  
   `;
+  const App = () => {
+
+    funAlert = () => {
+      Alert.alert('Hello')
+    }
+    return (
+      <View style={styles.container1}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={funAlert}
+        >
+          <Text style={styles.submitTextStyle}>Submit</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
+  
+
 
   const copyToClipboard = async () => {
     await Clipboard.setString(codeString);
@@ -78,11 +97,11 @@ const styles = StyleSheet.create({
         </SyntaxHighlighter>
       </View>
       <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-       <Image
-       source={require('../Images/v2.png')}
-        style={styles.ImageStyle}
-       />
+      <View>
+      <App/>
+      </View>
     </ScrollView>
+
   );
 };
 export default TouchableOpacityScreen;
@@ -147,6 +166,28 @@ const styles = StyleSheet.create({
   ImageStyle: {
     alignSelf: 'center',
     height: 400,
-    width: 300
-  }
+    width: 300,
+
+  },
+  container1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10
+  },
+  buttonStyle: {
+    backgroundColor: 'blue',
+    width: '100%',
+    padding: 10,
+    borderRadius: 30
+  },
+  submitTextStyle: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    letterSpacing: 17.12,
+    lineHeight: 80
+    //backgroundColor:'yellow' 
+  }
 });
