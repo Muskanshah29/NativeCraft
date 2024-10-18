@@ -79,11 +79,7 @@ const styles = StyleSheet.create({
       </View>
       <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
        <Image
-<<<<<<< HEAD
        source={require('../Images/v2.png')}
-=======
-       source={require('../../vaibhav/Images/v2.png')}
->>>>>>> 39402f222280350cda5b1b57349ad706e55ff291
         style={styles.ImageStyle}
        />
     </ScrollView>
