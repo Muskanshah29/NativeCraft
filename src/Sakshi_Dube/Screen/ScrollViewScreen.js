@@ -1,11 +1,29 @@
-import React, { useRef } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard, Image } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
-import Video from 'react-native-video';
 
 const ScrollViewScreen = ({ language = 'javascript', theme = atomOneDark }) => {
-  const videoRef = useRef(null);
+
+  const Example = () => {
+    return (
+      <ScrollView>
+        <View style={styles.content}>
+          <Text style={styles.txt}>Item 1</Text>
+          <Text style={styles.txt}>Item 2</Text>
+          <Text style={styles.txt}>Item 3</Text>
+          <Text style={styles.txt}>Item 4</Text>
+          <Text style={styles.txt}>Item 5</Text>
+          <Text style={styles.txt}>Item 6</Text>
+          <Text style={styles.txt}>Item 7</Text>
+          <Text style={styles.txt}>Item 8</Text>
+          <Text style={styles.txt}>Item 9</Text>
+          <Text style={styles.txt}>Item 10</Text>
+          
+        </View>
+      </ScrollView>
+    );
+  }
+
   const codeString = `
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
@@ -13,56 +31,21 @@ import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 const Example = () => {
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.txtStyle}>Item 1</Text>
-        <Image
-            source={require('../../Sakshi_Dube/image/i2.png')}
-            style={{height:100,width:100}}
-        />
-        <Text style={styles.txtStyle}>Item 2</Text>
-        <Image
-            source={require('../../Sakshi_Dube/image/i5.png')}
-            style={{height:100,width:100}}
-        />
-        <Text style={styles.txtStyle}>Item 3</Text>
-        <Image
-            source={require('../../Sakshi_Dube/image/i2.png')}
-            style={{height:100,width:100}}
-        />
-        <Text style={styles.txtStyle}>Item 4</Text>
-        <Image
-            source={require('../../Sakshi_Dube/image/i5.png')}
-            style={{height:100,width:100}}
-        />
-        <Text style={styles.txtStyle}>Item 5</Text>
-        <Image
-            source={require('../../Sakshi_Dube/image/i2.png')}
-            style={{height:100,width:100}}
-        />
-        <Text style={styles.txtStyle}>Item 6</Text>
-        <Image
-            source={require('../../Sakshi_Dube/image/i5.png')}
-            style={{height:100,width:100}}
-        />
-        <Text style={styles.txtStyle}>Item 7</Text>
-      </View>
-    </ScrollView>
-  );
-};
-export default Example;
-
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
-        padding:20,
-        alignItems:'center'
-    },
-    txtStyle:{
-        fontWeight:'bold',
-        marginVertical:20,
-        fontSize:20
-    }
-})`;
+        <View style={styles.content}>
+          <Text style={styles.txt}>Item 1</Text>
+          <Text style={styles.txt}>Item 2</Text>
+          <Text style={styles.txt}>Item 3</Text>
+          <Text style={styles.txt}>Item 4</Text>
+          <Text style={styles.txt}>Item 5</Text>
+          <Text style={styles.txt}>Item 6</Text>
+          <Text style={styles.txt}>Item 7</Text>
+          <Text style={styles.txt}>Item 8</Text>
+          <Text style={styles.txt}>Item 9</Text>
+          <Text style={styles.txt}>Item 10</Text>
+        </View>
+      </ScrollView>
+    );
+}`;
 
   const copyToClipboard = async () => {
     await Clipboard.setString(codeString);
@@ -103,22 +86,7 @@ const styles=StyleSheet.create({
       </View>
       <View>
         <Text style={styles.subtitle}>Code Output:</Text>
-        <View>
-          <Video
-            ref={videoRef} // Attach the ref to the Video component
-            source={require('../../Sakshi_Dube/video/SViewVideo.mp4')}
-            style={styles.video}
-            controls={false} // Disable video controls
-            resizeMode="contain" // Adjust video size
-            paused={false} // Autoplay
-            onLoad={() => {
-              if (videoRef.current) {
-                videoRef.current.seek(0); // Seek to the start
-              }
-            }}
-            repeat={true} // Loop the video
-          />
-        </View>
+        <Example />
       </View>
     </ScrollView>
   );
@@ -172,7 +140,7 @@ const styles = StyleSheet.create({
     right: 5,
     paddingVertical: 5,
     paddingHorizontal: 10,
-    backgroundColor: '#1ABC9C',
+    backgroundColor: '#48C9B0',
     borderRadius: 5,
     zIndex: 1,
   },
@@ -188,8 +156,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     padding: 10,
   },
-  video: {
-    width: '100%',
-    height: 800, // Adjust height as needed
-},
+  txt: {
+    fontWeight: 'bold',
+    marginVertical: 20,
+    fontSize: 20,
+    color: 'black'
+  },
+  content:{
+    backgroundColor:'#E3E3E3',
+    alignItems:'center',
+    marginVertical:20,
+  }
+
 });
