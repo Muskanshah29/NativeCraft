@@ -7,6 +7,20 @@ import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 const CustomizeButtonScreen = ({ language = 'javascript', theme = atomOneDark }) => {
     const videoRef = useRef(null);
 
+    const CustomButton = ({ onPress}) => {
+        return (
+            <View style={styles.container}>
+            <TouchableOpacity 
+                onPress={onPress} 
+                style={styles.button}
+            >
+                <Text style={styles.text}>Click Me</Text>
+            </TouchableOpacity>
+            </View>
+        );
+    };
+    
+
     const codeString = `
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
@@ -85,23 +99,7 @@ export default CustomButton;
 
             <View>
                 <Text style={styles.subtitle}>Code Output:</Text>
-                <View>
-                    <Video
-                        ref={videoRef} // Attach the ref to the Video component
-                        source={require('../../Sakshi_Dube/video/CustomButtonVideo.mp4')}
-                        style={styles.video}
-                        controls={false} // Disable video controls
-                        resizeMode="contain" // Adjust video size
-                        paused={false} // Autoplay
-                        onLoad={() => {
-                            if (videoRef.current) {
-                                videoRef.current.seek(0); // Seek to the start
-                            }
-                        }}
-                        repeat={true} // Loop the video
-                    />
-                </View>
-
+                    <CustomButton/>
             </View>
         </ScrollView>
     );
@@ -171,8 +169,19 @@ const styles = StyleSheet.create({
         fontSize: 14,
         padding: 10,
     },
-    video: {
-        width: '100%',
-        height: 800, // Adjust height as needed
+    button: {
+        padding: 12,
+        marginVertical:10,
+        borderRadius: 10,
+        borderColor:'green',
+        borderWidth:1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor:'#ACAC'
+    },
+    text: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color:'white'
     },
 });
