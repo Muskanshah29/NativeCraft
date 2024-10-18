@@ -95,9 +95,9 @@ export default PropsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     padding: 10,
-    backgroundColor: '#E9F5EF',
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   codeContainer: {
-    marginTop: 20,
+    marginTop: 30,
     borderRadius: 5,
     overflow: 'hidden',
     position: 'relative',
