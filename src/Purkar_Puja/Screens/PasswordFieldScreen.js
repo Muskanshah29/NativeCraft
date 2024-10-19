@@ -5,6 +5,33 @@ import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Clipboard from '@react-native-clipboard/clipboard';
 
+// Define the PasswordInput component first
+const PasswordInput = () => {
+  const [password, setPassword] = useState('');
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
+
+  return (
+    <View style={styles.passwordContainer}>
+      <TextInput
+        secureTextEntry={!isPasswordVisible}
+        value={password}
+        onChangeText={setPassword}
+        placeholder="Enter your password"
+        style={styles.passwordInput}
+      />
+      <TouchableOpacity onPress={() => setPasswordVisible(!isPasswordVisible)}>
+        <Icon 
+          name={isPasswordVisible ? 'eye-off' : 'eye'} 
+          size={24} 
+          color="#555" 
+          style={styles.icon}
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+// Define the PasswordFieldScreen component after the PasswordInput
 const PasswordFieldScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const passwordCodeString = `
 import React, { useState } from 'react';
@@ -25,7 +52,7 @@ const PasswordInput = () => {
         style={{ flex: 1 }}
       />
       <TouchableOpacity onPress={() => setPasswordVisible(!isPasswordVisible)}>
-        <Icon name={isPasswordVisible ? 'eye-off' : 'eye'} size={20} />
+        <Icon name={isPasswordVisible ? 'eye-off' : 'eye'} size={24} />
       </TouchableOpacity>
     </View>
   );
@@ -50,7 +77,7 @@ export default PasswordInput;`;
       <Text style={styles.code}>
         {`<TextInput secureTextEntry={!isPasswordVisible} ... />
 <TouchableOpacity onPress={() => setPasswordVisible(!isPasswordVisible)}>
-  <Icon name={isPasswordVisible ? 'eye-off' : 'eye'} size={20} />
+  <Icon name={isPasswordVisible ? 'eye-off' : 'eye'} size={24} />
 </TouchableOpacity>`}
       </Text>
 
@@ -69,9 +96,7 @@ export default PasswordInput;`;
       </View>
 
       <Text style={styles.subtitle}>Example Output:</Text>
-      <Text style={styles.code}>
-        {`[Password field with an icon to toggle visibility]`}
-      </Text>
+      <PasswordInput />
     </ScrollView>
   );
 };
@@ -139,5 +164,24 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontSize: 14,
     padding: 10,
+  },
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 5,
+    marginTop: 5,
+    marginBottom:5
+    
+  },
+  passwordInput: {
+    flex: 1,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    color:'black'
+  },
+  icon: {
+    padding: 5,
   },
 });
