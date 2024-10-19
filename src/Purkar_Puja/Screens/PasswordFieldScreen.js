@@ -5,7 +5,7 @@ import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Clipboard from '@react-native-clipboard/clipboard';
 
-// Define the PasswordInput component first
+
 const PasswordInput = () => {
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
@@ -31,7 +31,7 @@ const PasswordInput = () => {
   );
 };
 
-// Define the PasswordFieldScreen component after the PasswordInput
+
 const PasswordFieldScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const passwordCodeString = `
 import React, { useState } from 'react';
