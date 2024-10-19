@@ -4,6 +4,7 @@ import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import Clipboard from '@react-native-clipboard/clipboard';
 
+
 const StackNavigatorScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const stackNavigatorCodeString = `
 import React from 'react';
@@ -77,12 +78,12 @@ export default App;`;
       </View>
 
       <Text style={styles.subtitle}>Example Output:</Text>
-      
+
       <View style={styles.exampleOutput}>
-        
+
         <View style={styles.screen}>
           <TouchableOpacity style={styles.text}>
-          <Text style={styles.text}>Home Screen</Text>
+            <Text style={styles.text}>Home Screen</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Go to Details</Text>
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
   },
-  
+
   screen: {
     padding: 20,
     backgroundColor: 'white',
