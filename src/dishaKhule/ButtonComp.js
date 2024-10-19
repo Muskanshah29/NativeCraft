@@ -19,10 +19,9 @@ const  ButtonComp = () => {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center'
+    width:'30%',
+    alignSelf:'center',
+    marginTop:30
   }
 })
   export default ButtonComp;
@@ -56,13 +55,13 @@ const styles = StyleSheet.create({
         </SyntaxHighlighter>
       </View>
       <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-      <View style={{width:'30%',alignSelf:'center',marginTop:30}}>
-      <TouchableOpacity>
-      <Button
-      title="Submit"
-      color={"red"}
-      />
-      </TouchableOpacity>
+      <View style={{ width: '30%', alignSelf: 'center', marginTop: 30 }}>
+        <TouchableOpacity>
+          <Button
+            title="Submit"
+            color={"red"}
+          />
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: 'bold',
     color: '#2E4053',
-    marginTop:10
+    marginTop: 10
   },
   descriptionText: {
     fontSize: 17,
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#2E4053',
-    marginTop:10
+    marginTop: 10
   },
   codeContainer: {
     marginTop: 5,
@@ -127,8 +126,8 @@ const styles = StyleSheet.create({
   },
   ImageStyle: {
     alignSelf: 'center',
-    height:100,
-    width:200
+    height: 100,
+    width: 200
   }
 });
 

@@ -11,52 +11,59 @@ import React from 'react'
 import Carousel from 'react-native-reanimated-carousel'
 const CarouselComp = () => {
   const Width = Dimensions.get('window').width
-  const data = [
-    {
-      id: 1,
-      image: require('./src/assets/images/f1.png'),
-      name: 'BURDS'
-    },
-  ]
-  const renderItem = ({ item }) => {
+    const data = [
+      {
+        id: 1,
+        image: require('../dishaKhule/Image/Burd1.png'),
+        name: 'BURDS'
+      },
+      {
+        id: 1,
+        image: require('../dishaKhule/Image/Burd2.png'),
+        name: 'BURDS'
+      },
+      {
+        id: 1,
+        image: require('../dishaKhule/Image/Burd3.png'),
+        name: 'BURDS'
+      },
+      {
+        id: 1,
+        image: require('../dishaKhule/Image/Burd4.png'),
+        name: 'BURDS'
+      },
+    ]
+    const renderItem = ({ item }) => {
+      return (
+        <View style={{ margin:5 }}>
+          <Image
+            source={item.image}
+            style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: 15
+            }}
+          />
+        </View>
+      )
+    }
     return (
-      <View style={{ margin: 10, }}>
-        <Image
-          source={item.image}
-          style={{
-            width: '100%',
-            height: '100%',
-            borderRadius: 15
-          }}
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+        <Text style={{ color: '#2E4053', fontWeight: 'bold' }}>BURDS</Text>
+        <Carousel
+          data={data}
+          renderItem={renderItem}
+          width={Width}
+          height={Width}
+          loop
+          autoPlay
+          autoPlayInterval={500}
+          autoPlayReverse={500}
+          mode={'parallax'}
         />
       </View>
     )
   }
-  return (
-    <View style={styles.container}>
-      <Text style={{color:'black',marginTop:'50%',fontWeight:'bold'}}>BURDS</Text>
-      <Carousel
-        data={data}
-        renderItem={renderItem}
-        width={Width}
-        height={Width}
-        loop
-        autoPlay
-        autoPlayInterval={500}
-        autoPlayReverse={500}
-        mode={'parallax'}
-      />
-    </View>
-  )
-}
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor:'white'
-  }
-})
   export default CarouselComp;
   `;
   const copyToClipboard = async () => {
