@@ -57,7 +57,7 @@ const Example = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>React Native FlatList</Text>
+      <Text style={styles.title}>React Native Map Method:FlatList</Text>
       <Text style={styles.description}>
         FlatList is a performant way to render large lists in React Native. It only renders items that are currently visible on the screen.
       </Text>
