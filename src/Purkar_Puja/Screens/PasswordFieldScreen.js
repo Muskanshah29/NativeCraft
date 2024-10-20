@@ -49,6 +49,7 @@ const PasswordInput = () => {
         value={password}
         onChangeText={setPassword}
         placeholder="Enter your password"
+        placehoderTextColor="Grey"
         style={{ flex: 1 }}
       />
       <TouchableOpacity onPress={() => setPasswordVisible(!isPasswordVisible)}>
@@ -72,7 +73,7 @@ export default PasswordInput;`;
         This example shows how to create a password input field with an icon to toggle visibility. 
         The password is hidden by default, and tapping the icon reveals it.
       </Text>
-
+      
       <Text style={styles.subtitle}>Syntax:</Text>
       <Text style={styles.code}>
         {`<TextInput secureTextEntry={!isPasswordVisible} ... />
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     marginTop: 5,
-    marginBottom:5
+    marginBottom:20
     
   },
   passwordInput: {
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     color:'black',
-    marginBottom:15
+    //marginBottom:15
   },
   icon: {
     padding: 5,
