@@ -143,7 +143,7 @@ export default BottomTabNavigatorScreen;
 const styles = StyleSheet.create({
   scrollViewContent: {
     padding: 10,
-    backgroundColor: '#E9F5EF',
+    backgroundColor: 'white',
     flexGrow: 1,
   },
   title: {
