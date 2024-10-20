@@ -1,49 +1,54 @@
-import React, { useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity,Pressable, Alert, Clipboard } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
-import Video from 'react-native-video';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
-const PressableScreen = ({ language = 'javascript', theme = atomOneDark }) => {
-    const videoRef = useRef(null);
+const PressableComponent = () => {
+    const handlePress = () => {
+        console.log('Pressed!');
+    };
+    return (
+        <Pressable
+            onPress={handlePress}
+            style={({ pressed }) => [
+                { backgroundColor: pressed ? 'lightgray' : '#487DB5' },
+                styles.button
+            ]}
+        >
+            <Text style={styles.pressableButtonText}>Press Me!</Text>
+        </Pressable>
+    );
+};
 
+const PressableScreen = ({ language = 'javascript', theme = atomOneDark }) => {
     const codeString = `
 import React from 'react';
 import { Pressable, Text, StyleSheet } from 'react-native';
 
 const PressableComponent = () => {
-  const handlePress = () => {
-    console.log('Pressed!');
-  };
-
-  return (
-    <Pressable 
-      onPress={handlePress}
-      style={({ pressed }) => [
-        { backgroundColor: pressed ? 'lightgray' : 'white' },
-        styles.button
-      ]}
-    >
-      <Text style={{color:'pink',fontWeight:'bold',fontSize:25}}>Press Me!</Text>
-    </Pressable>
-  );
+    const handlePress = () => {
+        console.log('Pressed!');
+    };
+    return (
+        <Pressable
+            onPress={handlePress}
+            style={({ pressed }) => [
+                { backgroundColor: pressed ? 'lightgray' : '#487DB5' },
+                styles.button
+            ]}
+        >
+            <Text style={styles.pressableButtonText}>Press Me!</Text>
+        </Pressable>
+    );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    padding: 15,
-    borderRadius: 5,
-    alignItems: 'center',
-    top:350
-  },
-});
-
-export default PressableComponent;
 `;
 
     const copyToClipboard = async () => {
-        await Clipboard.setString(codeString);
-        Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
+        try {
+            await Clipboard.setString(codeString);
+            Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
+        } catch (error) {
+            Alert.alert('Error', 'Failed to copy code.');
+        }
     };
 
     return (
@@ -54,53 +59,26 @@ export default PressableComponent;
                 It provides a way to define how the component should respond to touch events,
                 such as pressing, long pressing, and more.
             </Text>
-
             <Text style={styles.subtitle}>Syntax:</Text>
             <Text style={styles.code}>
-                {`<Pressable onPress={onPressFunction}>
-  <Text>I'm pressable!</Text>
-</Pressable>`}
+                {`<Pressable onPress={onPressFunction}>...</Pressable>`}
             </Text>
-
             <Text style={styles.subtitle}>Example Code:</Text>
             <View style={styles.codeContainer}>
                 <TouchableOpacity style={styles.copyButton} onPress={copyToClipboard}>
                     <Text style={styles.copyButtonText}>Copy</Text>
                 </TouchableOpacity>
-                <SyntaxHighlighter
-                    language={language}
-                    style={theme}
-                    customStyle={styles.syntaxHighlighter}
-                >
+                <SyntaxHighlighter language={language} style={theme} customStyle={styles.syntaxHighlighter}>
                     {codeString}
                 </SyntaxHighlighter>
             </View>
-
-            <View>
-                <Text style={styles.subtitle}>Code Output:</Text>
-                <View>
-                    <Video
-                        ref={videoRef} // Attach the ref to the Video component
-                        source={require('../../Sakshi_Dube/video/PressableVideo.mp4')}
-                        style={styles.video}
-                        controls={false} // Disable video controls
-                        resizeMode="contain" // Adjust video size
-                        paused={false} // Autoplay
-                        onLoad={() => {
-                            if (videoRef.current) {
-                                videoRef.current.seek(0); // Seek to the start
-                            }
-                        }}
-                        repeat={true} // Loop the video
-                    />
-                </View>
-
+            <Text style={styles.subtitle}>Code Output:</Text>
+            <View style={styles.outputContainer}>
+                <PressableComponent />
             </View>
         </ScrollView>
     );
 };
-
-export default PressableScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -116,10 +94,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     description: {
+        top:5,
         fontSize: 16,
         marginBottom: 10,
         color: '#34495E',
-        top: 5,
     },
     subtitle: {
         fontSize: 18,
@@ -153,19 +131,31 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
     codeContainer: {
-        marginTop: 30,
+        marginTop: 10,
         borderRadius: 5,
         overflow: 'hidden',
         position: 'relative',
-        bottom: 25,
     },
     syntaxHighlighter: {
         lineHeight: 20,
         fontSize: 14,
         padding: 10,
     },
-    video: {
-        width: '100%',
-        height: 800, // Adjust height as needed
+    button: {
+        padding: 12,
+        borderRadius: 5,
+        alignItems: 'center',
+        marginVertical:12
+    },
+    pressableButtonText: {
+        color: 'pink',
+        fontWeight: 'bold',
+        fontSize: 25,
+    },
+    outputContainer: {
+        padding: 4,
+        bottom:5
     },
 });
+
+export default PressableScreen;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';  
 import Toast from 'react-native-toast-message';
+import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
 // Toast function to show toast notifications
 const showToast = (message) => {
@@ -16,8 +16,13 @@ const showToast = (message) => {
 // Example Output with Toasts
 const ExampleOutput = () => {
   return (
+    
     <View style={styles.toastContainer}>
+      <View style={{marginRight:290,}}>
+          <Text style={{fontSize: 18,fontWeight: 'bold',marginBottom: 5, color: '#2E4053',}}>Output:</Text>
+      </View>
       <TouchableOpacity style={styles.toastButton} onPress={() => showToast('Home Screen')}>
+        
         <Text style={styles.buttonText}>Show Home Screen Toast</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.toastButton} onPress={() => showToast('Settings Screen')}>
@@ -68,7 +73,7 @@ export default ExampleOutput;
       <ScrollView style={styles.container}>
         <Text style={styles.title}>React Native Toasts</Text>
         <Text style={styles.description}>
-          Toasts provide a way to display a quick notification or message at the bottom of the screen. 
+          Toasts provide a way to display a quick notification or message at the bottom of the screen.
         </Text>
 
         <Text style={styles.subtitle}>What is a Toast?</Text>
@@ -98,13 +103,18 @@ export default ExampleOutput;
             {codeString}
           </SyntaxHighlighter>
         </View>
+
+
+        {/* Render ExampleOutput outside of ScrollView */}
+        <View style={styles.outputContainer}>
+          <ExampleOutput />
+        </View>
+        {/* Add Toast at the end of the component */}
+        <Toast ref={(ref) => Toast.setRef(ref)} />
+
       </ScrollView>
 
-      {/* Render ExampleOutput outside of ScrollView */}
-      <View style={styles.outputContainer}>
-        <ExampleOutput />
-      </View>
-      <Toast ref={(ref) => Toast.setRef(ref)} />
+
     </>
   );
 };
@@ -114,7 +124,7 @@ export default Toastscreen;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: '#E9F5EF',
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
@@ -177,16 +187,18 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   toastContainer: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    // marginTop: 10,
+    marginBottom:10
   },
   toastButton: {
     padding: 15,
     margin: 10,
     backgroundColor: '#3498db',
     borderRadius: 5,
+   
   },
   buttonText: {
     color: '#fff',
