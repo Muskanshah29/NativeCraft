@@ -43,7 +43,7 @@ const PasswordInput = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 5, padding: 5,hight:15 }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 5, padding: 5}}>
       <TextInput
         secureTextEntry={!isPasswordVisible}
         value={password}
@@ -179,7 +179,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 5,
     paddingHorizontal: 10,
-    color:'black'
+    color:'black',
+    marginBottom:15
   },
   icon: {
     padding: 5,
