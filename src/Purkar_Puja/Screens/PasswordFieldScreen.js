@@ -43,7 +43,7 @@ const PasswordInput = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 5, padding: 5 }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 5, padding: 5,hight:15 }}>
       <TextInput
         secureTextEntry={!isPasswordVisible}
         value={password}
