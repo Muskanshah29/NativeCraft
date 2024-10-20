@@ -3,6 +3,7 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard 
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
+
 const PropsScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const codeString = `
 import React from 'react';

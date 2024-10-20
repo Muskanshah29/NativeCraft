@@ -3,6 +3,7 @@ import { View, Text, FlatList, ScrollView, StyleSheet, TouchableOpacity, Alert, 
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
+
 const MapScreen = ({ language = 'javascript', theme = atomOneDark }) => {
 
   const Example = () => {
