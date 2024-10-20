@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
@@ -63,11 +64,9 @@ const App = () => {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
         })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
@@ -84,10 +83,9 @@ export default App;
     Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
   };
 
-  
   const ExampleOutput = () => {
     return (
-      
+      <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -100,28 +98,19 @@ export default App;
               return <Ionicons name={iconName} size={size} color={color} />;
             },
           })}
-          tabBarOptions={{
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
-          }}
         >
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
-      
+      </NavigationContainer>
     );
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <Text style={styles.title}>React Native Bottom Tab Navigator</Text>
       <Text style={styles.description}>
         The Bottom Tab Navigator provides an easy way to navigate between different screens in an app using a tab bar at the bottom of the screen. It allows you to switch between different tabs with customizable icons and labels.
-      </Text>
-
-      <Text style={styles.subtitle}>What is Bottom Tab Navigator?</Text>
-      <Text style={styles.description}>
-        Bottom Tab Navigator is a type of navigation in React Native, which allows switching between different screens with a tab bar at the bottom. The tabs can have icons, labels, and you can customize the behavior for active/inactive states.
       </Text>
 
       <Text style={styles.subtitle}>Syntax:</Text>
@@ -137,11 +126,7 @@ export default App;
         <TouchableOpacity style={styles.copyButton} onPress={copyToClipboard}>
           <Text style={styles.copyButtonText}>Copy</Text>
         </TouchableOpacity>
-        <SyntaxHighlighter
-          language={language}
-          style={theme}
-          customStyle={styles.syntaxHighlighter}
-        >
+        <SyntaxHighlighter language={language} style={theme} customStyle={styles.syntaxHighlighter}>
           {codeString}
         </SyntaxHighlighter>
       </View>
@@ -157,10 +142,10 @@ export default App;
 export default BottomTabNavigatorScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  scrollViewContent: {
     padding: 10,
-    backgroundColor: '#E9F5EF',
+    backgroundColor: 'white',
+    flexGrow: 1,
   },
   title: {
     fontSize: 24,
@@ -210,7 +195,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     overflow: 'hidden',
     position: 'relative',
-    bottom: 25,
   },
   syntaxHighlighter: {
     lineHeight: 20,
@@ -222,7 +206,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#2E4053',
     borderRadius: 5,
-    marginBottom:30,
   },
   screen: {
     flex: 1,

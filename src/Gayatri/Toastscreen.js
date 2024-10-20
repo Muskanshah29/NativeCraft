@@ -124,7 +124,7 @@ export default Toastscreen;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: '#E9F5EF',
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,

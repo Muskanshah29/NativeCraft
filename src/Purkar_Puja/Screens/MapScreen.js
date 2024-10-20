@@ -1,35 +1,77 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, FlatList, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
-import Clipboard from '@react-native-clipboard/clipboard';
+
 
 const MapScreen = ({ language = 'javascript', theme = atomOneDark }) => {
-  const mapCodeString = `
-const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(number => number * 2);
 
-console.log(doubled);
-// Output: [2, 4, 6, 8, 10]`;
+  const Example = () => {
+    const items = [
+      { id: '1', name: 'Apple' },
+      { id: '2', name: 'Banana' },
+      { id: '3', name: 'Orange' },
+      { id: '4', name: 'Grapes' },
+      { id: '5', name: 'Pineapple' },
+    ];
+
+    return (
+      <FlatList
+        data={items}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Text style={styles.txt}>{item.name}</Text>
+        )}
+        contentContainerStyle={styles.content}
+      />
+    );
+  };
+
+  const codeString = `
+import React from 'react';
+import { FlatList, Text, View } from 'react-native';
+
+const Example = () => {
+  const items = [
+    { id: '1', name: 'Apple' },
+    { id: '2', name: 'Banana' },
+    { id: '3', name: 'Orange' },
+    { id: '4', name: 'Grapes' },
+    { id: '5', name: 'Pineapple' },
+  ];
+
+  return (
+    <FlatList
+      data={items}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <Text>{item.name}</Text>
+      )}
+    />
+  );
+};`;
 
   const copyToClipboard = async () => {
-    await Clipboard.setString(mapCodeString);
+    await Clipboard.setString(codeString);
     Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
   };
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>JavaScript Array map() Method</Text>
+      <Text style={styles.title}>React Native Map Method:FlatList</Text>
       <Text style={styles.description}>
-        The `map()` method creates a new array populated with the results of calling a provided 
-        function on every element in the calling array. It is often used for transforming data in lists.
+        FlatList is a performant way to render large lists in React Native. It only renders items that are currently visible on the screen.
       </Text>
 
       <Text style={styles.subtitle}>Syntax:</Text>
       <Text style={styles.code}>
-        {`array.map((element, index, array) => {
-  // Return new value for each element
-})`}
+        {`<FlatList
+  data={data}
+  keyExtractor={(item) => item.id}
+  renderItem={({ item }) => (
+    
+  )}
+/>`}
       </Text>
 
       <Text style={styles.subtitle}>Example Code:</Text>
@@ -42,14 +84,13 @@ console.log(doubled);
           style={theme}
           customStyle={styles.syntaxHighlighter}
         >
-          {mapCodeString}
+          {codeString}
         </SyntaxHighlighter>
       </View>
-
-      <Text style={styles.subtitle}>Example Output:</Text>
-      <Text style={styles.code}>
-        {`[2, 4, 6, 8, 10]`}
-      </Text>
+      <View>
+        <Text style={styles.subtitle}>Code Output:</Text>
+        <Example />
+      </View>
     </ScrollView>
   );
 };
@@ -59,8 +100,8 @@ export default MapScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#E9F5EF',
+    padding: 10,
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
@@ -102,12 +143,12 @@ const styles = StyleSheet.create({
     right: 5,
     paddingVertical: 5,
     paddingHorizontal: 10,
-    backgroundColor: '#1ABC9C',
+    backgroundColor: '#48C9B0',
     borderRadius: 5,
     zIndex: 1,
   },
   codeContainer: {
-    marginTop: 20,
+    marginTop: 30,
     borderRadius: 5,
     overflow: 'hidden',
     position: 'relative',
@@ -116,6 +157,17 @@ const styles = StyleSheet.create({
   syntaxHighlighter: {
     lineHeight: 20,
     fontSize: 14,
+    padding: 10,
+  },
+  txt: {
+    fontWeight: 'bold',
+    marginVertical: 10,
+    fontSize: 18,
+    color: 'black',
+  },
+  content: {
+    backgroundColor: '#E3E3E3',
+    alignItems: 'center',
     padding: 10,
   },
 });

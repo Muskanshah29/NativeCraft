@@ -3,6 +3,7 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard,
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
+
 const SectionListScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const codeString = `
 import React from 'react';
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#E9F5EF',
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
     color: '#2E4053',
   },
   code: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'white',
     padding: 10,
     color: '#292929',
     borderRadius: 5,
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 10,
     marginBottom:30,
-    backgroundColor: 'white',
+    backgroundColor: '#2E4053',
     borderRadius: 5,
   },
   outputHeader: {

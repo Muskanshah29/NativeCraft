@@ -1,58 +1,81 @@
-import React from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image, TextInput } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
+import React, { useState } from 'react';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import { Clipboard } from 'react-native';
-const InputText = ({ language = 'javascript', theme = atomOneDark }) => {
+const InputTextComponent = ({ language = 'javascript', theme = atomOneDark }) => {
     const codeString = `
 
   import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, Text, StyleSheet } from 'react-native';
 
-const InputText = () => {
-  const [text, setText] = useState('');
+const InputTextComponent = () => {
+  const [inputText, setInputText] = useState('');
 
   return (
     <View style={styles.container}>
-      <Text>InputText</Text>
+      <Text style={styles.TextInput}>Enter Text :-</Text>
       <TextInput
         style={styles.input}
-        placeholder="Type something..."
-        value={text}
-        onChangeText={(text) => setText(text)}
+        placeholderTextColor={'grey'}
+        placeholder="Type Something..."
+        value={inputText}
+        onChangeText={text => setInputText(text)}
       />
-      <Text>Your text: {text}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor:'gray',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex:1,
     padding: 20,
+    backgroundColor:'white'
+  },
+  TextInput: {
+    fontSize: 18,
+    marginBottom: 10,
+    marginLeft:5,
+    color:'black',
+    fontWeight:'500'
   },
   input: {
-    height: 50,
+    height: 40,
     borderColor: 'black',
     borderWidth: 1,
-    padding: 10,
-    width: '100%',
-  },
+    paddingHorizontal: 10,
+    marginBottom: 20,
+    borderRadius:20,
+  }
 });
 
-export default InputText;
+export default InputTextComponent;
   `;
 
     const copyToClipboard = async () => {
         await Clipboard.setString(codeString);
         Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
     };
+    const InputTextComponent = () => {
+        const [inputText, setInputText] = useState('');
+
+        return (
+            <View style={styles.container}>
+                <Text style={styles.TextInput}>Enter Text :-</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholderTextColor={'grey'}
+                    placeholder="Type Something..."
+
+                    value={inputText}
+                    onChangeText={text => setInputText(text)}
+                />
+            </View>
+        );
+    };
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.title}>Text Input</Text>
+            <Text style={styles.title}>React Native Text Input</Text>
             <Text style={styles.descText}>Description :-</Text>
             <Text style={styles.descriptionText}>
                 input facilitates efficient communication & interaction with digital devices & applications
@@ -71,43 +94,39 @@ export default InputText;
                     {codeString}
                 </SyntaxHighlighter>
             </View>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-            <Image
-                source={require('../Images/a1.png')}
-                style={styles.ImageStyle}
-            />
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
+            < InputTextComponent />
         </ScrollView>
     );
 };
-export default InputText;
+export default InputTextComponent;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 5,
+        padding: 15,
         backgroundColor: 'white'
     },
     title: {
-        fontSize: 30,
+        fontSize: 23,
         fontWeight: 'bold',
+        marginBottom: 5,
         color: '#2E4053',
-        alignSelf: 'center',
-        marginBottom: 10
+        textAlign: 'center',
     },
     descText: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
         color: '#2E4053',
         marginTop: 10
     },
     descriptionText: {
         fontSize: 16,
+        marginBottom: 5,
         color: '#34495E',
-        fontWeight: '400',
-        marginLeft: 2,
-        marginVertical: 5
+        top: 5,
     },
     codeTitle: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: 'bold',
         color: '#2E4053',
         marginTop: 10
@@ -140,7 +159,23 @@ const styles = StyleSheet.create({
     },
     ImageStyle: {
         alignSelf: 'center',
-        height: 600,
-        width: 300
+        height: 300,
+        width: 350
+    },
+    TextInput: {
+        fontSize: 18,
+        marginBottom: 10,
+        marginLeft: 5,
+        color: 'black',
+        fontWeight: '500'
+    },
+    input: {
+        height: 40,
+        borderColor: 'black',
+        borderWidth: 1,
+        paddingHorizontal: 10,
+        marginBottom: 20,
+        borderRadius: 20,
+        color: 'black',
     }
 });
