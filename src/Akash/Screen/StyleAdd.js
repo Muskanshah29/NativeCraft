@@ -12,27 +12,28 @@ import { StyleSheet, Text, View } from 'react-native';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hello, React Native!</Text>
+      <Text style={styles.title1}>Hello, React Native!</Text>
       <Text style={styles.subtitle}>This is a subtitle</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  container1: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'white',
   },
-  title: {
+  title1: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
+    color: 'blue',
   },
   subtitle: {
-    fontSize: 18,
-    color: '#666',
+    fontSize: 15,
+    color: 'red',
+    marginTop:2
   },
 });
 
@@ -44,9 +45,17 @@ export default App;
         await Clipboard.setString(codeString);
         Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
     };
+    const App = () => {
+        return (
+            <View style={styles.container1}>
+                <Text style={styles.title1}>Hello, React Native!</Text>
+                <Text style={styles.subtitle}>This is a subtitle</Text>
+            </View>
+        );
+    };
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.title}>Style Add</Text>
+            <Text style={styles.title}>React Native Style Add</Text>
             <Text style={styles.descText}>Description :-</Text>
             <Text style={styles.descriptionText}>
                 In React Native, style is a prop used to apply custom styling to components, using a JavaScript object or array of objects. It supports CSS-like properties but tailored for mobile platforms (e.g., flex, padding, color).
@@ -65,11 +74,8 @@ export default App;
                     {codeString}
                 </SyntaxHighlighter>
             </View>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-            <Image
-       source={require('../Images/a3.png')}
-        style={styles.ImageStyle}
-       />
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
+            <App />
         </ScrollView>
     );
 };
@@ -77,31 +83,30 @@ export default StyleAdd;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 5,
+        padding: 15,
         backgroundColor: 'white'
     },
     title: {
-        fontSize: 30,
+        fontSize: 23,
         fontWeight: 'bold',
+        marginBottom: 5,
         color: '#2E4053',
-        alignSelf: 'center',
-        marginBottom: 10
+        textAlign: 'center',
     },
     descText: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
         color: '#2E4053',
         marginTop: 10
     },
     descriptionText: {
         fontSize: 16,
+        marginBottom: 5,
         color: '#34495E',
-        fontWeight: '400',
-        marginLeft: 2,
-        marginVertical: 5
+        top: 5,
     },
     codeTitle: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
         color: '#2E4053',
         marginTop: 10
@@ -136,5 +141,23 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         height: 300,
         width: 350
-    }
+    },
+    title1: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: 'blue',
+    },
+    subtitle: {
+        fontSize: 15,
+        color: 'red',
+        marginTop: 2
+    },
+    container1: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        marginBottom: 40,
+        marginTop: 10
+    },
 });

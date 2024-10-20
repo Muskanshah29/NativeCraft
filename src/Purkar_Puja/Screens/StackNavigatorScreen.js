@@ -4,6 +4,7 @@ import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import Clipboard from '@react-native-clipboard/clipboard';
 
+
 const StackNavigatorScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const stackNavigatorCodeString = `
 import React from 'react';
@@ -77,9 +78,19 @@ export default App;`;
       </View>
 
       <Text style={styles.subtitle}>Example Output:</Text>
-      <Text style={styles.code}>
-        {`[A stack-based navigation with "Home" and "Details" screens]`}
-      </Text>
+
+      <View style={styles.exampleOutput}>
+
+        <View style={styles.screen}>
+          <TouchableOpacity style={styles.text}>
+            <Text style={styles.text}>Home Screen</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Go to Details</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
     </ScrollView>
   );
 };
@@ -147,5 +158,31 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontSize: 14,
     padding: 10,
+  },
+  exampleOutput: {
+    padding: 20,
+    borderRadius: 10,
+  },
+
+  screen: {
+    padding: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 15,
+    color: '#2E4053',
+    marginBottom: 5,
+    fontWeight: 'bold'
+  },
+  button: {
+    backgroundColor: '#1ABC9C',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
 });

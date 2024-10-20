@@ -8,7 +8,7 @@ const Drawer = createDrawerNavigator();
 import HomeScreen from '../../Sakshi_Dube/Screen/HomeScreen';
 import PressableScreen from '../../Sakshi_Dube/Screen/PressableScreen';
 import ScrollViewScreen from '../../Sakshi_Dube/Screen/ScrollViewScreen';
-import InputText from '../../Akash/Screen/InputText';
+import InputText from '../../Akash/Screen/InputTextComponent';
 import Searchbar1 from '../../Akash/Screen/Searchbar1';
 import StyleAdd from '../../Akash/Screen/StyleAdd';
 import BottomTabNavigatorScreen from '../../MayuriWagh/screen/BottomTabNavigatorScreen';
