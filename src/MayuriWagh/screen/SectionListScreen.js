@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#2E4053',
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
     color: '#2E4053',
   },
   code: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'white',
     padding: 10,
     color: '#292929',
     borderRadius: 5,

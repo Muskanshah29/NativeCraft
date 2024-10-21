@@ -1,6 +1,6 @@
-import React from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image, TextInput } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
+import React, { useState } from 'react';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import { Clipboard } from 'react-native';
 const InputTextComponent = ({ language = 'javascript', theme = atomOneDark }) => {
@@ -56,9 +56,26 @@ export default InputTextComponent;
         await Clipboard.setString(codeString);
         Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
     };
+    const InputTextComponent = () => {
+        const [inputText, setInputText] = useState('');
+
+        return (
+            <View style={styles.container}>
+                <Text style={styles.TextInput}>Enter Text :-</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholderTextColor={'grey'}
+                    placeholder="Type Something..."
+
+                    value={inputText}
+                    onChangeText={text => setInputText(text)}
+                />
+            </View>
+        );
+    };
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.title}>Text Input</Text>
+            <Text style={styles.title}>React Native Text Input</Text>
             <Text style={styles.descText}>Description :-</Text>
             <Text style={styles.descriptionText}>
                 input facilitates efficient communication & interaction with digital devices & applications
@@ -77,11 +94,8 @@ export default InputTextComponent;
                     {codeString}
                 </SyntaxHighlighter>
             </View>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-            <Image
-                source={require('../Images/a1.png')}
-                style={styles.ImageStyle}
-            />
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
+            < InputTextComponent />
         </ScrollView>
     );
 };
@@ -89,31 +103,31 @@ export default InputTextComponent;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 5,
-        backgroundColor: 'white'
+        padding: 18,
+        backgroundColor: '#E9F5EF',
     },
     title: {
-        fontSize: 30,
+        fontSize: 22,
+        marginTop:25,
         fontWeight: 'bold',
+        marginBottom: 5,
         color: '#2E4053',
-        alignSelf: 'center',
-        marginBottom: 10
+        textAlign: 'center',
     },
     descText: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold',
         color: '#2E4053',
-        marginTop: 10
+        marginTop: 15
     },
     descriptionText: {
         fontSize: 16,
+        marginBottom: 5,
         color: '#34495E',
-        fontWeight: '400',
-        marginLeft: 2,
-        marginVertical: 5
+        top: 5,
     },
     codeTitle: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: 'bold',
         color: '#2E4053',
         marginTop: 10
@@ -148,5 +162,21 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         height: 300,
         width: 350
+    },
+    TextInput: {
+        fontSize: 18,
+        marginBottom: 10,
+        marginLeft: 5,
+        color: 'black',
+        fontWeight: '500'
+    },
+    input: {
+        height: 40,
+        borderColor: 'black',
+        borderWidth: 1,
+        paddingHorizontal: 10,
+        marginBottom: 20,
+        borderRadius: 20,
+        color: 'black',
     }
 });

@@ -119,11 +119,12 @@ export default FlatListScreen;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 18,
     backgroundColor: '#E9F5EF',
   },
   title: {
-    fontSize: 24,
+    fontSize: 23,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#2E4053',
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
     color: '#2E4053',
   },
   code: {
-    backgroundColor: '#E9F5EF',
+    backgroundColor: '#f0f0f0',
     padding: 10,
     color: '#292929',
     borderRadius: 5,

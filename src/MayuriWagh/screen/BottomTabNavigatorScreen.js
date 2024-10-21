@@ -27,67 +27,28 @@ const SettingsScreen = () => {
 const BottomTabNavigatorScreen = ({ language = 'javascript', theme = atomOneDark }) => {
   const codeString = `
 import React from 'react';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
+import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-const Tab = createBottomTabNavigator();
-
 const HomeScreen = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home Screen</Text>
+    <View style={styles.screen}>
+      <Text style={styles.text}>Home Screen</Text>
     </View>
   );
 };
-
 const SettingsScreen = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings Screen</Text>
+    <View style={styles.screen}>
+      <Text style={styles.text}>Settings Screen</Text>
     </View>
   );
 };
-
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            if (route.name === 'Home') {
-              iconName = focused ? 'home' : 'home-outline';
-            } else if (route.name === 'Settings') {
-              iconName = focused ? 'settings' : 'settings-outline';
-            }
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
-      >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-};
-
-export default App;
-`;
-
-  const copyToClipboard = async () => {
-    await Clipboard.setString(codeString);
-    Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
-  };
-
-  
-  const ExampleOutput = () => {
+const ExampleOutput = () => {
     return (
-      
+      <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -100,28 +61,48 @@ export default App;
               return <Ionicons name={iconName} size={size} color={color} />;
             },
           })}
-          tabBarOptions={{
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
-          }}
         >
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
-      
+      </NavigationContainer>
+    );
+  };
+`;
+
+  const copyToClipboard = async () => {
+    await Clipboard.setString(codeString);
+    Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
+  };
+
+  const ExampleOutput = () => {
+    return (
+   
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+              if (route.name === 'Home') {
+                iconName = focused ? 'home' : 'home-outline';
+              } else if (route.name === 'Settings') {
+                iconName = focused ? 'settings' : 'settings-outline';
+              }
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+          })}
+        >
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
+     
     );
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <Text style={styles.title}>React Native Bottom Tab Navigator</Text>
       <Text style={styles.description}>
         The Bottom Tab Navigator provides an easy way to navigate between different screens in an app using a tab bar at the bottom of the screen. It allows you to switch between different tabs with customizable icons and labels.
-      </Text>
-
-      <Text style={styles.subtitle}>What is Bottom Tab Navigator?</Text>
-      <Text style={styles.description}>
-        Bottom Tab Navigator is a type of navigation in React Native, which allows switching between different screens with a tab bar at the bottom. The tabs can have icons, labels, and you can customize the behavior for active/inactive states.
       </Text>
 
       <Text style={styles.subtitle}>Syntax:</Text>
@@ -137,11 +118,7 @@ export default App;
         <TouchableOpacity style={styles.copyButton} onPress={copyToClipboard}>
           <Text style={styles.copyButtonText}>Copy</Text>
         </TouchableOpacity>
-        <SyntaxHighlighter
-          language={language}
-          style={theme}
-          customStyle={styles.syntaxHighlighter}
-        >
+        <SyntaxHighlighter language={language} style={theme} customStyle={styles.syntaxHighlighter}>
           {codeString}
         </SyntaxHighlighter>
       </View>
@@ -157,13 +134,14 @@ export default App;
 export default BottomTabNavigatorScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
+  scrollViewContent: {
+    padding: 18,
     backgroundColor: '#E9F5EF',
+    flexGrow: 1,
   },
   title: {
     fontSize: 24,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#2E4053',
@@ -210,7 +188,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     overflow: 'hidden',
     position: 'relative',
-    bottom: 25,
   },
   syntaxHighlighter: {
     lineHeight: 20,
@@ -222,7 +199,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#2E4053',
     borderRadius: 5,
-    marginBottom:30,
   },
   screen: {
     flex: 1,
