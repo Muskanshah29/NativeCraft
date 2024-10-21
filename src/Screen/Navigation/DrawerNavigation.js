@@ -26,169 +26,171 @@ import LinearScreen from '../../vaibhav/Screen/LinearScreen';
 import CustomizeButtonScreen from '../../Sakshi_Dube/Screen/CustomizeButtonScreen';
 const DrawerNavigation = () => {
     return (
-        <Drawer.Navigator
-            screenOptions={{
-                drawerStyle: {
-                    backgroundColor: 'white',
-                    borderTopRightRadius: 20,
-                    borderBottomRightRadius: 20,
-                    width: 280,
-                },
-                drawerLabelStyle: {
-                    fontSize: 15,
-                    color: 'black',
-                    fontWeight: 'bold',
-                },
-                drawerActiveBackgroundColor: '#48C9B0',
-                drawerActiveTintColor: '#333',
-                drawerInactiveTintColor: '#555',
-            }}
-        >
-            <Drawer.Screen
-                name='Introduction'
-                component={HomeScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='home' size={20} color='black' />,
+        <NavigationContainer>
+            <Drawer.Navigator
+                screenOptions={{
+                    drawerStyle: {
+                        backgroundColor: 'white',
+                        borderTopRightRadius: 20,
+                        borderBottomRightRadius: 20,
+                        width: 280,
+                    },
+                    drawerLabelStyle: {
+                        fontSize: 15,
+                        color: 'black',
+                        fontWeight: 'bold',
+                    },
+                    drawerActiveBackgroundColor: '#48C9B0',
+                    drawerActiveTintColor: '#333',
+                    drawerInactiveTintColor: '#555',
                 }}
-            />
-            <Drawer.Screen
-                name='Pressable'
-                component={PressableScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='ScrollView'
-                component={ScrollViewScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='CustomizeButton'
-                component={CustomizeButtonScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='pluscircleo' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='TextInput'
-                component={InputText}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='edit' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='Searchbar'
-                component={Searchbar1}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='search1' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='Style'
-                component={StyleAdd}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='book' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='BottomTabNavigator'
-                component={BottomTabNavigatorScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore-o' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='Props'
-                component={PropsScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='SectionList'
-                component={SectionListScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='MapMethod'
-                component={MapScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='PasswordField'
-                component={PasswordFieldScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='lock' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='StackNavigation'
-                component={StackNavigatorScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='bars' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='Button'
-                component={ButtonComp}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='pluscircleo' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='Carousel'
-                component={CarouselComp}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='picture' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='Image'
-                component={ImageScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='picture' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='LinearGradient'
-                component={LinearScreen}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
-                }}
-            />
-            <Drawer.Screen
-                name='TouchableOpacity'
-                component={TouchableOpacity1}
-                options={{
-                    headerShown: false,
-                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
-                }}
-            />
-        </Drawer.Navigator>
+            >
+                <Drawer.Screen
+                    name='Introduction'
+                    component={HomeScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='home' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='Pressable'
+                    component={PressableScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='ScrollView'
+                    component={ScrollViewScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='CustomizeButton'
+                    component={CustomizeButtonScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='pluscircleo' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='TextInput'
+                    component={InputText}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='edit' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='Searchbar'
+                    component={Searchbar1}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='search1' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='Style'
+                    component={StyleAdd}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='book' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='BottomTabNavigator'
+                    component={BottomTabNavigatorScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore-o' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='Props'
+                    component={PropsScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='SectionList'
+                    component={SectionListScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='MapMethod'
+                    component={MapScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='PasswordField'
+                    component={PasswordFieldScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='lock' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='StackNavigation'
+                    component={StackNavigatorScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='bars' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='Button'
+                    component={ButtonComp}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='pluscircleo' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='Carousel'
+                    component={CarouselComp}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='picture' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='Image'
+                    component={ImageScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='picture' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='LinearGradient'
+                    component={LinearScreen}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                    }}
+                />
+                <Drawer.Screen
+                    name='TouchableOpacity'
+                    component={TouchableOpacity1}
+                    options={{
+                        headerShown: false,
+                        drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                    }}
+                />
+            </Drawer.Navigator>
+        </NavigationContainer>
 
     );
 };
