@@ -10,10 +10,12 @@ import React from "react";
 const  ButtonComp = () => {
   return (
     <View style={styles.container}>
-      <Button
-        title="Submit"
-        color={"red"}
-      />
+   <TouchableOpacity>
+             <Button
+            title="Submit"
+            color={"red"}
+          />
+    </TouchableOpacity>
     </View>
   )
 }
