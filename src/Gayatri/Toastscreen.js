@@ -19,7 +19,7 @@ const ExampleOutput = () => {
     
     <View style={styles.toastContainer}>
       <View style={{marginRight:290,}}>
-          <Text style={{fontSize: 18,fontWeight: 'bold',marginBottom: 5, color: '#2E4053',}}>Output:</Text>
+          <Text style={{fontSize: 14,fontWeight: 'bold',marginBottom: 5, color: '#2E4053',}}>Output:</Text>
       </View>
       <TouchableOpacity style={styles.toastButton} onPress={() => showToast('Home Screen')}>
         
@@ -123,11 +123,12 @@ export default Toastscreen;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: 'white',
+    padding: 18,
+    backgroundColor: '#E9F5EF',
   },
   title: {
     fontSize: 24,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#2E4053',

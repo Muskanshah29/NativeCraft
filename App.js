@@ -1,12 +1,9 @@
 import React from 'react'
-import { StyleSheet, View,Text } from 'react-native';
-import DrawerNavigation from './src/Screen/Navigation/DrawerNavigation';
-
+import AppNavigation from './src/Screen/Navigation/AppNavigation'
 const App = () => {
   return (
-    <DrawerNavigation/>
+   <AppNavigation/>
   )
 }
 
-export default App;
-const styles = StyleSheet.create({});
+export default App
