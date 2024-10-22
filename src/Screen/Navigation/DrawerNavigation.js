@@ -24,6 +24,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import TouchableOpacity1 from '../../vaibhav/Screen/TouchableOpacityScreen';
 import LinearScreen from '../../vaibhav/Screen/LinearScreen';
 import CustomizeButtonScreen from '../../Sakshi_Dube/Screen/CustomizeButtonScreen';
+import { FlatList } from 'react-native-gesture-handler';
+import FlatListScreen from '../../Gayatri/FlatlistScreen';
+import Toastscreen from '../../Gayatri/Toastscreen';
+import DrawerNavigatorScreen from '../../Gayatri/DrawerNavigatorScreen';
 const DrawerNavigation = () => {
     return (
         <Drawer.Navigator
@@ -148,6 +152,15 @@ const DrawerNavigation = () => {
                     drawerIcon: () => <Icon name='bars' size={20} color='black' />,
                 }}
             />
+
+            <Drawer.Screen
+                name='DrawerNavigation'
+                component={DrawerNavigatorScreen}
+                options={{
+                    headerShown: false,
+                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                }}
+            />
             <Drawer.Screen
                 name='Button'
                 component={ButtonComp}
@@ -183,6 +196,24 @@ const DrawerNavigation = () => {
             <Drawer.Screen
                 name='TouchableOpacity'
                 component={TouchableOpacity1}
+                options={{
+                    headerShown: false,
+                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                }}
+            />
+
+            <Drawer.Screen
+                name='FlatList'
+                component={FlatListScreen}
+                options={{
+                    headerShown: false,
+                    drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,
+                }}
+            />
+
+            <Drawer.Screen
+                name='Toast'
+                component={Toastscreen}
                 options={{
                     headerShown: false,
                     drawerIcon: () => <Icon name='appstore1' size={20} color='black' />,

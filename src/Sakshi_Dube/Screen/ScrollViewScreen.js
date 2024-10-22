@@ -54,7 +54,7 @@ const Example = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>React Native ScrollView</Text>
+      <Text style={styles.title}>ScrollView</Text>
       <Text style={styles.description}>
         ScrollView is a component that enables scrolling functionality for its child components.
         It is useful for displaying a list of items that may not fit on the screen at once.
@@ -97,7 +97,7 @@ export default ScrollViewScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    padding: 18,
     backgroundColor: 'white',
   },
   title: {

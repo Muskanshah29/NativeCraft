@@ -9,9 +9,7 @@ const App = () => {
     </Text>
   </View>
  )
+  
 }
 
 export default App;
-
-
-
