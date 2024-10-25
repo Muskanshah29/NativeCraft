@@ -113,11 +113,12 @@ export default Searchbar1;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 15,
-        backgroundColor: 'white'
+        padding: 18,
+        backgroundColor: '#E9F5EF',
     },
     title: {
         fontSize: 23,
+        marginTop:25,
         fontWeight: 'bold',
         marginBottom: 5,
         color: '#2E4053',

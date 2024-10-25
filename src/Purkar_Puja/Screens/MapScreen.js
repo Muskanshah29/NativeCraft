@@ -101,9 +101,11 @@ const styles = StyleSheet.create({
     // flex: 1,
     padding: 10,
     backgroundColor: 'white',
+   
   },
   title: {
     fontSize: 24,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#2E4053',

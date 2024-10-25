@@ -108,11 +108,12 @@ export default TouchableOpacityScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 5,
-    backgroundColor: 'white'
+    padding: 18,
+    backgroundColor: '#E9F5EF',
   },
   title: {
     fontSize: 30,
+    marginTop:20,
     fontWeight: 'bold',
     color: '#2E4053',
     alignSelf: 'center',
@@ -173,7 +174,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10
+    padding: 10,
+    marginBottom:20
   },
   buttonStyle: {
     backgroundColor: 'blue',
