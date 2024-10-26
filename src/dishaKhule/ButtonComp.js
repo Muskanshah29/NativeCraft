@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         </SyntaxHighlighter>
       </View>
       <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-      <View style={{ width: '30%', alignSelf: 'center', marginTop: 30 }}>
+      <View style={{ width: '30%', alignSelf: 'center', marginTop: 30,marginBottom:50 }}>
         <TouchableOpacity>
           <Button
             title="Submit"
@@ -70,11 +70,12 @@ export default ButtonComp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
-    backgroundColor: 'white'
+    padding: 18,
+    backgroundColor: '#E9F5EF',
   },
   title: {
     fontSize: 23,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 5,
     color: '#2E4053',
