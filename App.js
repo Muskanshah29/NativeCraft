@@ -1,9 +1,10 @@
 import React from 'react'
-import AppNavigation from './src/Screen/Navigation/AppNavigation'
 const App = () => {
   return (
-   <AppNavigation/>
+    <View>
+      <Text>App</Text>
+    </View>
   )
 }
-
-export default App
+export default App;
+const styles = StyleSheet.create({})
