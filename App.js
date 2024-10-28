@@ -13,5 +13,5 @@ const App = () => {
 
 export default App;
 
-const styles = StyleSheet.create({})
-export default App
+
+
