@@ -110,11 +110,12 @@ export default CustomizeButtonScreen;
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
-        padding: 10,
-        backgroundColor: 'white',
+        padding: 18,
+        backgroundColor: '#E9F5EF',
     },
     title: {
         fontSize: 24,
+        marginTop:25,
         fontWeight: 'bold',
         marginBottom: 10,
         color: '#2E4053',

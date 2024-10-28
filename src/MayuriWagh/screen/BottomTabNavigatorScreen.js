@@ -77,7 +77,7 @@ const ExampleOutput = () => {
 
   const ExampleOutput = () => {
     return (
-      <NavigationContainer>
+   
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -94,7 +94,7 @@ const ExampleOutput = () => {
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
-      </NavigationContainer>
+     
     );
   };
 
@@ -135,12 +135,13 @@ export default BottomTabNavigatorScreen;
 
 const styles = StyleSheet.create({
   scrollViewContent: {
-    padding: 10,
+    padding: 18,
     backgroundColor: '#E9F5EF',
     flexGrow: 1,
   },
   title: {
     fontSize: 24,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#2E4053',

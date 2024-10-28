@@ -1,67 +1,52 @@
 import React from 'react';
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity, Alert, Image, Dimensions } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 import { Clipboard } from 'react-native';
-const StyleAdd = ({ language = 'javascript', theme = atomOneDark }) => {
+const UseStateHooks = ({ language = 'javascript', theme = atomOneDark }) => {
     const codeString = `
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import React, { useState } from 'react'
 
-  import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+const UseState = () => {
+    const [count, setCount] = useState(0) 
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title1}>Hello, React Native!</Text>
-      <Text style={styles.subtitle}>This is a subtitle</Text>
-    </View>
-  );
-};
+    const Inc=()=>{
+        setCount((prevCount)=>prevCount+1) 
+    }
 
-const styles = StyleSheet.create({
-  container1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  title1: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'blue',
-  },
-  subtitle: {
-    fontSize: 15,
-    color: 'red',
-    marginTop:2
-  },
-});
+    const dec=()=>{
+        setCount((prevCount)=>prevCount-1) 
+    }
 
-export default App;
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Button title='Increment'  onPress={Inc}/>
+            <Text>{count}</Text>
+            <Button title='Decrement'  onPress={dec}/>
+        </View>
+    )
+}
+export default UseState
 
+const styles = StyleSheet.create({})
   `;
-
     const copyToClipboard = async () => {
         await Clipboard.setString(codeString);
         Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
     };
-    const App = () => {
-        return (
-            <View style={styles.container1}>
-                <Text style={styles.title1}>Hello, React Native!</Text>
-                <Text style={styles.subtitle}>This is a subtitle</Text>
-            </View>
-        );
-    };
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.title}>React Native Style Add</Text>
+            <Text style={styles.title}>React Native In UseState</Text>
             <Text style={styles.descText}>Description :-</Text>
             <Text style={styles.descriptionText}>
-                In React Native, style is a prop used to apply custom styling to components, using a JavaScript object or array of objects. It supports CSS-like properties but tailored for mobile platforms (e.g., flex, padding, color).
+                In React, the useState Hook allows you to add state to functional components.
+                useState returns an array with two values: the current state and a function to update it.
+                The Hook takes an initial state value as an argument and returns an updated state value whenever
+                the setter function is called.
+                const [state, setState] = useState(initialState)
             </Text>
             <Text style={styles.codeTitle}>Example Code :-</Text>
-
             <View style={styles.codeContainer}>
                 <TouchableOpacity style={styles.copyButton} onPress={copyToClipboard}>
                     <Text style={styles.copyButtonText}>Copy</Text>
@@ -74,12 +59,10 @@ export default App;
                     {codeString}
                 </SyntaxHighlighter>
             </View>
-            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#2E4053', marginTop: 5 }}>Output :-</Text>
-            <App />
         </ScrollView>
     );
 };
-export default StyleAdd;
+export default UseStateHooks;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -88,7 +71,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 23,
-        marginTop:25,
+        marginTop: 15,
         fontWeight: 'bold',
         marginBottom: 5,
         color: '#2E4053',
@@ -135,30 +118,8 @@ const styles = StyleSheet.create({
     },
     copyButtonText: {
         color: '#FFFFFF', // White text color
-        fontSize: 14,
-        fontWeight: 'bold',
-    },
-    ImageStyle: {
-        alignSelf: 'center',
-        height: 300,
-        width: 350
-    },
-    title1: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: 'blue',
-    },
-    subtitle: {
         fontSize: 15,
-        color: 'red',
-        marginTop: 2
-    },
-    container1: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-        marginBottom: 40,
-        marginTop: 10
-    },
+        fontWeight: 'bold',
+    }
 });
+

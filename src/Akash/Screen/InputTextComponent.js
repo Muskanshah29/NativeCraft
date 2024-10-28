@@ -103,11 +103,12 @@ export default InputTextComponent;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 15,
-        backgroundColor: 'white'
+        padding: 18,
+        backgroundColor: '#E9F5EF',
     },
     title: {
-        fontSize: 23,
+        fontSize: 22,
+        marginTop:25,
         fontWeight: 'bold',
         marginBottom: 5,
         color: '#2E4053',
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: 'bold',
         color: '#2E4053',
-        marginTop: 10
+        marginTop: 15
     },
     descriptionText: {
         fontSize: 16,

@@ -106,11 +106,12 @@ export default PasswordFieldScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 18,
     backgroundColor: '#E9F5EF',
   },
   title: {
     fontSize: 24,
+    marginTop:25,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#2E4053',
@@ -172,14 +173,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     marginTop: 5,
-    marginBottom:5
+    marginBottom:35
     
   },
   passwordInput: {
     flex: 1,
     paddingVertical: 5,
     paddingHorizontal: 10,
-    color:'black'
+    color:'black',
   },
   icon: {
     padding: 5,
