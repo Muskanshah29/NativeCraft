@@ -30,10 +30,6 @@ import Toastscreen from '../../Gayatri/Toastscreen';
 import DrawerNavigatorScreen from '../../Gayatri/DrawerNavigatorScreen';
 const DrawerNavigation = () => {
     return (
-<<<<<<< HEAD
-        <NavigationContainer>
-=======
->>>>>>> 67ee396a142404e7cf07d9be43683ce6d86c4513
             <Drawer.Navigator
                 screenOptions={{
                     drawerStyle: {
@@ -202,7 +198,7 @@ const DrawerNavigation = () => {
                     }}
                 />
             </Drawer.Navigator>
-        </NavigationContainer>
+        // </NavigationContainer>
 =======
             />
             <Drawer.Screen

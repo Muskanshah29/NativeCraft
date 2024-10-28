@@ -1,63 +1,47 @@
-import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView, StyleSheet, Button, TouchableOpacity, Alert, Clipboard } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
-const CustomizeButtonScreen = ({ language = 'javascript', theme = atomOneDark }) => {
+const UseEffectScreen = ({ language = 'javascript', theme = atomOneDark }) => {
 
-    const CustomButton = ({ onPress}) => {
+    const Counter = () => {
+        const [count, setCount] = useState(0);
+
+        // useEffect to log the count whenever it changes
+        useEffect(() => {
+            console.log('Count: ', count);
+        }, [count]);
+
         return (
-            <View style={styles.container}>
-            <TouchableOpacity 
-                onPress={onPress} 
-                style={styles.button}
-            >
-                <Text style={styles.text}>Click Me</Text>
-            </TouchableOpacity>
+            <View style={{ alignItems: 'center', marginBottom: 30 }}>
+                <Text style={{ color: 'black', fontWeight: '500' }}>You clicked {count} times</Text>
+                <Button title="Click me" onPress={() => setCount(count + 1)} />
             </View>
         );
-    };
-    
+    }
 
     const codeString = `
-import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+    
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button } from 'react-native';
 
-const CustomButton = ({ onPress}) => {
-    return (
-        <View style={styles.container}>
-        <TouchableOpacity 
-            onPress={onPress} 
-            style={styles.button}
-        >
-            <Text style={styles.text}>Click Me</Text>
-        </TouchableOpacity>
-        </View>
-    );
-};
+const Counter=()=> {
+  const [count, setCount] = useState(0);
 
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        padding:30,
-    },
-    button: {
-        padding: 10,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor:'#ACAC'
-    },
-    text: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color:'white'
-    },
-});
+  useEffect(() => {
+    console.log('Count: ',count);
+  }, [count]);
 
-export default CustomButton;
+  return (
+    <View style={{ alignItems: 'center', marginBottom: 30  }}>
+      <Text style={{ color: 'black', fontWeight: '500' }}>You clicked {count} times</Text>
+      <Button title="Click me" onPress={() => setCount(count + 1)} />
+    </View>
+  );
+}
 
+export default Counter;
 `;
 
     const copyToClipboard = async () => {
@@ -67,18 +51,30 @@ export default CustomButton;
 
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.title}>React Native Customize Button Component</Text>
+            <Text style={styles.title}>2. UseEffect </Text>
             <Text style={styles.description}>
-                To create a customizable button component in React Native,
-                you can define a functional component that accepts props for styling and behavior.
-                Below is a brief overview with a sample implementation.
+                In React Native, useEffect is a hook that lets you perform side effects in functional components.
+                Side effects can include tasks like data fetching, updating the DOM, setting up subscriptions, and timers.
             </Text>
+            <Text style={{ fontSize: 20, fontWeight: '700', color: '#2E4053', marginVertical: 10 }}>
+                How it Works ?
+            </Text>
+            <Text style={styles.infotxt}><Text style={{ fontWeight: 'bold', fontSize: 16 }}>{'\u2022'} Initial Render :</Text> useEffect runs after the component renders.{'\n'}</Text>
+
+            <Text style={styles.infotxt}><Text style={{ fontWeight: 'bold', fontSize: 16 }}>{'\u2022'} Dependencies Array ([ ]):</Text>{'\n'}<Text style={{textDecorationLine:'underline'}}>Controls when the effect runs:</Text>{'\n'}
+
+            {'\u2022'} [ ] (empty):  Runs once after the initial render.{'\n'}
+                {'\u2022'} [dependency1, dependency2]:  Re-runs whenever any dependency changes.{'\n'}</Text>
+            <Text style={styles.infotxt}><Text style={{ fontWeight: 'bold', fontSize: 16 }}>{'\u2022'} Cleanup Function:</Text> If returned from the effect, it runs on component unmount or before each re-run if dependencies change.</Text>
 
             <Text style={styles.subtitle}>Syntax:</Text>
+
             <Text style={styles.code}>
-                {`<TouchableOpacity onPress={onPressFunction}>
-  <Text>Touch Me!</Text>
-</TouchableOpacity>`}
+                {`
+useEffect(() => {
+    //function code
+  }, [dependency]);
+`}
             </Text>
 
             <Text style={styles.subtitle}>Example Code:</Text>
@@ -97,13 +93,13 @@ export default CustomButton;
 
             <View>
                 <Text style={styles.subtitle}>Code Output:</Text>
-                    <CustomButton/>
+                <Counter />
             </View>
         </ScrollView>
     );
 };
 
-export default CustomizeButtonScreen;
+export default UseEffectScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -113,7 +109,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        marginTop:25,
+        marginTop: 25,
         fontWeight: 'bold',
         marginBottom: 10,
         color: '#2E4053',
@@ -170,17 +166,20 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 12,
-        marginVertical:10,
+        marginVertical: 10,
         borderRadius: 10,
-        borderColor:'green',
-        borderWidth:1,
+        borderColor: 'green',
+        borderWidth: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor:'#ACAC'
+        backgroundColor: '#ACAC'
     },
     text: {
         fontSize: 16,
         fontWeight: 'bold',
-        color:'white'
+        color: 'white'
     },
+    infotxt: {
+        color: '#34495E',
+    }
 });
