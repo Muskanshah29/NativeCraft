@@ -19,7 +19,7 @@ const App = () => {
   };
 
   console.log(greet('World'));`;
-
+s
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Code Snippet:</Text>

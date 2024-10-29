@@ -105,6 +105,7 @@ export default PasswordFieldScreen;
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     padding: 18,
     backgroundColor: '#E9F5EF',
