@@ -54,16 +54,17 @@ export default RnSyntax;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 5,
-    backgroundColor: 'white'
-  },
-  title: {
-    fontSize: 30,
+    padding: 18,
+    backgroundColor: '#E9F5EF',
+},
+title: {
+    fontSize: 23,
+    marginTop:25,
     fontWeight: 'bold',
+    marginBottom: 5,
     color: '#2E4053',
-    alignSelf: 'center',
-    marginBottom: 10
-  },
+    textAlign: 'center',
+},
   descText: {
     fontSize: 20,
     fontWeight: 'bold',
