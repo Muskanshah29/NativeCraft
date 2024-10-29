@@ -62,7 +62,7 @@ export default PasswordInput;`;
 
   const copyToClipboard = async () => {
     await Clipboard.setString(passwordCodeString);
-    Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
+    Alert.alert('Copied to Clipboard!');
   };
 
   return (

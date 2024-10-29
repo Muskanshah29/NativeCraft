@@ -42,7 +42,7 @@ export default App;`;
 
   const copyToClipboard = async () => {
     await Clipboard.setString(stackNavigatorCodeString);
-    Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
+    Alert.alert('Copied to Clipboard!');
   };
 
   return (

@@ -3,6 +3,7 @@ import React from 'react';
 import HomeScreen from '../Sakshi_Dube/Screen/HomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ProfileScreen from '../Purkar_Puja/Screens/Profile_Screen';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,12 +22,29 @@ const BottomTabNav = () => {
         },
         tabBarActiveTintColor: '#48C9B0',
         tabBarInactiveTintColor: 'gray',
+        
       })}
     >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{ headerShown: false }} />
+
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? 'person' : 'person-outline'}
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+
 
     </Tab.Navigator>
   );

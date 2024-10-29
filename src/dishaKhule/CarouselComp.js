@@ -68,7 +68,7 @@ const CarouselComp = () => {
   `;
   const copyToClipboard = async () => {
     await Clipboard.setString(codeString);
-    Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
+    Alert.alert('Copied to Clipboard!');
   };
   const ExampleOutput = () => {
     const Width = Dimensions.get('window').width

@@ -46,7 +46,7 @@ export default Counter;
 
     const copyToClipboard = async () => {
         await Clipboard.setString(codeString);
-        Alert.alert('Copied to Clipboard!', 'The code snippet has been copied.');
+        Alert.alert('Copied to Clipboard!');
     };
 
     return (

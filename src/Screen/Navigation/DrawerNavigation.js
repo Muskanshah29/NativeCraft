@@ -261,7 +261,7 @@ const DrawerNavigation = () => {
             />
 
             <Drawer.Screen
-                name='UseRefd'
+                name='UseRef'
                 component={UseRef}
                 options={{
                     headerShown: false,

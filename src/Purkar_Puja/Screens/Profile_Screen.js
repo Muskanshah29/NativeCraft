@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
+import { View, Text, Image, StyleSheet, FlatList,ScrollView } from 'react-native';
 
 const ProfileScreen = () => {
   const profiles = [
@@ -44,8 +44,8 @@ const ProfileScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Design by Takechange Team</Text>
+    <ScrollView style={styles.container}>
+      <Text style={styles.header}>Design by Takechange Solution Team</Text>
       <FlatList
         data={profiles}
         renderItem={renderItem}
@@ -53,7 +53,7 @@ const ProfileScreen = () => {
         numColumns={2} 
         columnWrapperStyle={styles.row} 
       />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -61,11 +61,11 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1ABC9C',
+    backgroundColor: '#E9F5EF',
     padding: 20,
   },
   header: {
-    fontSize: 23,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#062626',
     marginBottom: 20,
