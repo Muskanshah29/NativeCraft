@@ -1,18 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import DemoUseState from './src/Hooks/DemoUseState'
-import BottomTabNav from './src/Gayatri/BottomTabNav'
-import TabNavigatorScreen from './src/Gayatri/BottomTabNav'
-
+import { StyleSheet, Text, View } from 'react-native'
 
 const App = () => {
   return (
     <View>
-      {/* <Text>hii Gayatri</Text> */}
-     {/* <DemoUseState/> */}
-    <BottomTabNav/>
+        <Text>App</Text>
     </View>
+    
   )
+ 
 }
 
-export default App
+export default App;
+
+const styles = StyleSheet.create({})

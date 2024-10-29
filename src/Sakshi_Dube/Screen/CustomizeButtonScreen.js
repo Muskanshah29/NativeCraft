@@ -1,11 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Alert, Clipboard } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
-import Video from 'react-native-video';
 import { atomOneDark } from 'react-syntax-highlighter/styles/hljs';
 
 const CustomizeButtonScreen = ({ language = 'javascript', theme = atomOneDark }) => {
-    const videoRef = useRef(null);
 
     const CustomButton = ({ onPress}) => {
         return (

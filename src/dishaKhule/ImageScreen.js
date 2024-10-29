@@ -12,7 +12,7 @@ import { Image, View } from "react-native";
   return (
     <View style={styles.container}>
       <Image
-        source={require('./src/assets/images/f2.png')}
+        source={require('../dishaKhule/Image/Image.png')}
         style={styles.imageStyle}
       />
     </View>
