@@ -2,7 +2,7 @@ import React from 'react'
 import AppNavigation from './src/Screen/Navigation/AppNavigation'
 const App = () => {
   return (
-    <AppNavigation />
+     <AppNavigation />
   )
 }
 export default App;
